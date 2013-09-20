@@ -25,6 +25,14 @@ public class CustomerResource {
         service.create(customer);
     }
 
+    @GET
+    @Path("{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Customer find(@PathParam("id") long id) {
+        LOG.info("GET: " + id);
+        return service.find(id);
+    }
+
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
     public void update(Customer customer) {
@@ -37,13 +45,5 @@ public class CustomerResource {
     public void delete(@PathParam("id") long id) {
         LOG.info("DELETE: " + id);
         service.remove(id);
-    }
-
-    @GET
-    @Path("{id}")
-    @Produces(MediaType.APPLICATION_JSON)
-    public Customer find(@PathParam("id") long id) {
-        LOG.info("GET: " + id);
-        return service.find(id);
     }
 }

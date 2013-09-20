@@ -28,5 +28,4 @@ public class CustomerService {
     public Customer find(long id) {
         return em.find(Customer.class, id);
     }
-
 }
